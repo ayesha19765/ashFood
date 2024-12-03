@@ -1,0 +1,309 @@
+/* app.css */
+
+.App {
+  text-align: center;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Styles for the navbar */
+
+
+.navbar {
+  top: 0;
+  z-index: 10;
+  /* Ensure it is above other content */
+  box-shadow: 0px 10px 20px black;
+  background-color: #8DECB4;
+  /* Ensure background color is visible */
+}
+
+/* Styles for the navbar links */
+.navbar-nav .nav-link {
+  color: white;
+  /* Ensure links are white */
+  position: relative;
+  display: inline-block;
+  transition: color 0.4s;
+}
+
+.navbar-nav .nav-link::before,
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: white;
+  /* Initial underline color */
+  bottom: -5px;
+  /* Adjust as needed */
+  left: 0;
+  transition: width 0.4s, background-color 0.6s;
+}
+
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  /* Change to desired hover color */
+  color: rgb(72, 33, 33, 0.5) !important;
+
+}
+
+.navbar-nav .nav-item .nav-link:hover::before,
+.navbar-nav .nav-item .nav-link:hover::after {
+  background-color: rgb(72, 33, 33, 0.5);
+  /* Change to desired underline hover color */
+}
+
+#login-signup {
+  background-color: white;
+}
+
+#login-signup::before #login-signup::after {
+  transition: all 0.01s ease-in-out;
+}
+
+#login-signup:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /* Adjust as needed */
+}
+
+.card {
+  transform: scale(1);
+  transition: 0.6s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+/* https://codepen.io/babouz44/pen/rPNYVW */
+
+/* img */
+
+#card-img-top {
+  height: 180px;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out;
+}
+
+
+.card button:hover {
+  color: whitesmoke;
+}
+
+.card button:active {
+  color: red;
+}
+
+.card #card-img-top:hover:not(:focus) {
+  transform: none;
+  /* Reset transform on hover except when the button is focused */
+}
+
+/* Home.js */
+#carouselExampleFade input {
+  background-color: rgb(254, 250, 246);
+}
+
+/* card */
+#card {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* @media (max-width: 300px) {
+  #card{
+    background-color: red;
+  }
+} */
+/* Footer */
+
+
+.footer-container {
+  text-align: center;
+  /* background-color: #f8f9fa; Adjust as needed */
+  padding: 20px;
+  /* font-size: 20px; */
+}
+
+/* .text-muted {
+  color: #6c757d !important;
+}
+
+.nav .text-muted {
+  color: #6c757d !important;
+} */
+
+.fa {
+  color: #E90606;
+  margin: 0 3px;
+  font-size: 15px;
+  animation: pound 0.35s infinite alternate;
+  -webkit-animation: pound 0.35s infinite alternate;
+}
+
+@-webkit-keyframes pound {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes pound {
+  to {
+    transform: scale(1.1);
+  }
+}
+
+/* loader.css */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.panWrapper {
+  width: 200px;
+  height: fit-content;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pan {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: fit-content;
+  animation: cooking 1.7s infinite;
+}
+
+@keyframes cooking {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: top right;
+  }
+
+  10% {
+    transform: rotate(-4deg);
+    transform-origin: top right;
+  }
+
+  50% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.food {
+  position: absolute;
+  width: 40%;
+  height: 6px;
+  background: linear-gradient(to bottom, rgb(82, 33, 33), rgb(200, 106, 106));
+  left: 10px;
+  border-radius: 50%;
+  animation: flip 1.7s infinite;
+  z-index: 2;
+}
+
+@keyframes flip {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-100px) rotate(180deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+.panBase {
+  z-index: 3;
+  width: 50%;
+  height: 22px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  background: linear-gradient(to top, rgb(3, 156, 156), rgb(10, 191, 191));
+}
+
+.panHandle {
+  width: 40%;
+  background: linear-gradient(to bottom, rgb(18, 18, 18), rgb(74, 74, 74));
+  height: 10px;
+  border-radius: 10px;
+}
+
+.panShadow {
+  width: 70px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.21);
+  margin-left: 15px;
+  border-radius: 10px;
+  animation: shadow 1.7s infinite;
+  filter: blur(5px);
+}
+
+@keyframes shadow {
+  0% {
+    transform: scaleX(0.7);
+  }
+
+  50% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0.7);
+  }
+}
